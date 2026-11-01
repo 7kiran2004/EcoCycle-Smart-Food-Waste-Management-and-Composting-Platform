@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}<section class="formbox"><p class="tag">FOOD SHARING</p><h1>Add food listing</h1>
+<form method="POST"><label>Food name</label><input name="name" placeholder="Fresh vegetables" required>
+<label>Quantity</label><input name="quantity" placeholder="2 kg / 5 packets" required>
+<label>Pickup location</label><input name="location" placeholder="College canteen" required>
+<label>Expiry date</label><input type="date" name="expiry" min="{{ today }}" required>
+<button class="btn" type="submit">Save Listing</button></form></section>{% endblock %}

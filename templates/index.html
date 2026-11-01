@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero"><div><p class="tag">SDG 12 · RESPONSIBLE CONSUMPTION</p>
+<h1>Give food a second chance.<br><span>Turn waste into value.</span></h1>
+<p>Share extra food and track vegetable waste as it becomes compost.</p>
+<a class="btn" href="/food/add">Share Food</a> <a class="btn light" href="/compost">Track Compost</a></div>
+<div class="plant">🌱<small>Grow a greener tomorrow</small></div></section>
+<h2>Your EcoCycle Dashboard</h2><section class="stats">
+<div class="card"><h3>{{ available }}</h3><p>Food items available</p></div>
+<div class="card"><h3>{{ entries }}</h3><p>Compost records</p></div>
+<div class="card"><h3>{{ kg|round(2) }} kg</h3><p>Vegetable waste tracked</p></div></section>
+<section class="panel"><h2>Recently shared food</h2>
+{% if recent %}<div class="scroll"><table><tr><th>Food</th><th>Quantity</th><th>Location</th><th>Status</th></tr>
+{% for x in recent %}<tr><td>{{ x.name }}</td><td>{{ x.quantity }}</td><td>{{ x.location }}</td><td>{{ x.status }}</td></tr>{% endfor %}
+</table></div>{% else %}<p>No food listings yet. Add the first one!</p>{% endif %}</section>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<div class="heading"><div><p class="tag">FOOD SHARING</p><h1>Available food</h1></div><a class="btn" href="/food/add">+ Add Food</a></div>
+<div class="panel scroll"><table><tr><th>Food</th><th>Quantity</th><th>Location</th><th>Expiry</th><th>Status</th><th>Action</th></tr>
+{% for x in items %}<tr><td>{{ x.name }}</td><td>{{ x.quantity }}</td><td>{{ x.location }}</td><td>{{ x.expiry }}</td><td>{{ x.status }}</td><td>
+{% if x.status == 'Available' %}<form method="POST" action="/food/collected/{{ x.id }}"><button class="small" type="submit">Mark collected</button></form>{% else %}Done{% endif %}</td></tr>
+{% else %}<tr><td colspan="6">No food listed yet.</td></tr>{% endfor %}</table></div>{% endblock %}

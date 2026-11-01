@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block content %}<p class="tag">COMPOST TRACKER</p><h1>Turn waste into compost</h1>
+<div class="columns"><section class="formbox"><h2>New compost record</h2><form method="POST">
+<label>Vegetable waste</label><input name="waste" placeholder="Potato peels" required>
+<label>Quantity (kg)</label><input type="number" name="quantity" min="0.1" step="0.1" required>
+<label>Compost stage</label><select name="stage" required><option value="">Choose stage</option>
+<option>Fresh Waste</option><option>Early Decomposition</option><option>Active Decomposition</option><option>Maturing Compost</option><option>Ready Compost</option></select>
+<button class="btn" type="submit">Save Record</button></form></section>
+<section class="panel"><h2>Composting stages</h2><ol><li>Fresh Waste</li><li>Early Decomposition</li><li>Active Decomposition</li><li>Maturing Compost</li><li>Ready Compost</li></ol><p class="muted">Update the stage when the compost changes.</p></section></div>
+<section class="panel"><h2>Your compost records</h2><div class="scroll"><table><tr><th>Waste</th><th>Quantity</th><th>Date</th><th>Stage</th></tr>
+{% for x in items %}<tr><td>{{ x.waste }}</td><td>{{ x.quantity }} kg</td><td>{{ x.added_on }}</td><td>{{ x.stage }}</td></tr>
+{% else %}<tr><td colspan="4">No compost records yet.</td></tr>{% endfor %}</table></div></section>{% endblock %}
